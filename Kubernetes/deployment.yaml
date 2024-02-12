@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-multiple-env-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-multiple-env
+  template:
+    metadata:
+      labels:
+        app: node-multiple-env
+    spec:
+      containers:
+      - name: node-multiple-env
+        image: adarsh8815/node-multiple-env-project
+        ports:
+        - containerPort: 3001
